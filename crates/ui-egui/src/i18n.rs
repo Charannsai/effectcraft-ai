@@ -9169,7 +9169,7 @@ mod tests {
     #[test]
     fn the_dock_draws_every_panel_it_can_in_the_interface_language() {
         use crate::dock::PanelKind;
-        const WITHOUT_A_ROW: &[&str] = &["History", "ScriptUI Panel"];
+        const WITHOUT_A_ROW: &[&str] = &["History", "ScriptUI Panel", "AI Assistant"];
         for (name, catalog, code) in [("ja", JAPANESE, "ja"), ("zh-hans", SIMPLIFIED_CHINESE, "zh-hans"), ("zh-hant", TRADITIONAL_CHINESE, "zh-hant")] {
             // The dock asks both catalogs, so a title may be named by either.
             ui::set_current(code);

@@ -55,10 +55,12 @@ pub enum PanelKind {
     CreateNullsFromPaths,
     /// Window ▸ VR Comp Editor (our own panel).
     VrCompEditor,
+    /// Window ▸ AI Assistant: chat-driven, undoable edit plans (our own panel).
+    AiAssistant,
 }
 
 impl PanelKind {
-    pub const ALL: [PanelKind; 34] = [
+    pub const ALL: [PanelKind; 35] = [
         PanelKind::Project,
         PanelKind::EffectControls,
         PanelKind::Composition,
@@ -93,6 +95,7 @@ impl PanelKind {
         PanelKind::ContentAwareFill,
         PanelKind::CreateNullsFromPaths,
         PanelKind::VrCompEditor,
+        PanelKind::AiAssistant,
     ];
     pub fn title(self) -> &'static str {
         match self {
@@ -132,6 +135,7 @@ impl PanelKind {
             PanelKind::ContentAwareFill => "Content-Aware Fill",
             PanelKind::CreateNullsFromPaths => "Create Nulls From Paths",
             PanelKind::VrCompEditor => "VR Comp Editor",
+            PanelKind::AiAssistant => "AI Assistant",
         }
     }
     pub fn id(self) -> String {

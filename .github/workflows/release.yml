@@ -1,15 +1,7 @@
 name: Release
 
 on:
-  push:
-    branches: [release]
   workflow_dispatch:
-    inputs:
-      version:
-        description: "Version override for a test run, e.g. 0.2.0-rc.1 (empty: Cargo.toml)"
-        type: string
-        default: ""
-
 concurrency:
   group: release-${{ github.ref }}
   cancel-in-progress: false

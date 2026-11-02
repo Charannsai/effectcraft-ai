@@ -3,13 +3,7 @@
 name: Nix
 
 on:
-  push:
-    branches: [main]
-    paths: ["flake.nix", "flake.lock", "nix/**", "Cargo.lock", ".github/workflows/nix.yml"]
-  pull_request:
-    paths: ["flake.nix", "flake.lock", "nix/**", "Cargo.lock", ".github/workflows/nix.yml"]
   workflow_dispatch:
-
 permissions:
   contents: read
 

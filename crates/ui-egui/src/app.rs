@@ -40,6 +40,7 @@ impl EffectcraftApp {
             workspace_store,
             tokens: Tokens::for_kind(Default::default()),
             auto: Default::default(),
+            ai_assistant: Default::default(),
             frames: Frames::default(),
             playback: Playback::default(),
             dialog: None,

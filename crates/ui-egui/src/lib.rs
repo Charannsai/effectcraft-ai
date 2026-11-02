@@ -251,6 +251,8 @@ pub struct EffectcraftApp {
     workspace_store: workspace_state::WorkspaceStore,
     pub tokens: Tokens,
     pub auto: automation::Registry,
+    /// The AI Assistant panel's state (chat, pending plan, worker handle, settings).
+    pub ai_assistant: panels::ai_assistant::AiAssistantState,
     pub frames: Frames,
     pub playback: Playback,
     pub dialog: Option<Dialog>,

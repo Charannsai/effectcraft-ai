@@ -333,6 +333,28 @@ pub fn text_field(ui: &mut Ui, rect: Rect, text: &mut String, hint: &str, t: &To
     field(ui, rect, text, hint, t, false)
 }
 
+/// [`text_field`] that masks the text (secrets): shows dots unless `reveal` is set by an
+/// explicit, temporary user action in the caller.
+pub fn text_field_secret(ui: &mut Ui, rect: Rect, text: &mut String, hint: &str, t: &Tokens, reveal: bool) -> Response {
+    let h = rect.height();
+    ui.painter().rect_filled(rect, h / 2.0, t.field_bg);
+    ui.painter().rect_stroke(rect, h / 2.0, Stroke::new(1.0, t.field_border), StrokeKind::Inside);
+    let inner = Rect::from_min_max(pos2(rect.min.x + 9.0, rect.min.y + 1.0), pos2(rect.max.x - 8.0, rect.max.y - 1.0));
+    let mut child = ui.new_child(egui::UiBuilder::new().max_rect(inner));
+    let resp = child.add(
+        egui::TextEdit::singleline(text)
+            .hint_text(hint)
+            .frame(egui::Frame::NONE)
+            .desired_width(inner.width())
+            .min_size(inner.size())
+            .font(Tokens::ui(12.0))
+            .password(!reveal)
+            .align(egui::Align2::LEFT_CENTER),
+    );
+    crate::a11y::name(&resp, hint);
+    resp
+}
+
 /// The shared body of [`text_field`] and [`search_field`]: paints the rounded field (and, for
 /// `search`, a magnifier), places a single-line `TextEdit` on `text` filling the inner rect,
 /// and returns its response.

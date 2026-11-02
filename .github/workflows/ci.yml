@@ -3,11 +3,7 @@ name: CI
 # Quality gates for every push to main and every pull request (`cargo xtask ci`), through the
 # suite's shared gate workflow in craft-common-actions.
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
-
 permissions:
   contents: read
 

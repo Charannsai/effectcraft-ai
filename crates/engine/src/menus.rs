@@ -1236,6 +1236,7 @@ Window
   Assign Shortcut to Workspace
     @dynamic:workspaceShortcuts
   ---
+  AI Assistant | window.panel {"panel":"aiAssistant"}
   Align | window.panel {"panel":"align"}
   Audio | window.panel {"panel":"audio"} | Cmd+4
   Brushes | window.panel {"panel":"brushes"} | Cmd+9

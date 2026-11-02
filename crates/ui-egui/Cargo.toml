@@ -26,6 +26,7 @@ egui = { workspace = true }
 eframe = { workspace = true, features = ["default_fonts", "wgpu", "accesskit", "clipboard"] }
 serde = { workspace = true }
 serde_json = { workspace = true }
+toml = "1"
 log = { workspace = true }
 chrono = { workspace = true }
 rayon = { workspace = true }
@@ -37,6 +38,10 @@ image = { workspace = true }
 # Floating panels open in OS windows of their own on desktop; the web keeps them in the page.
 craft-ui = { workspace = true, features = ["native-windows"] }
 craft-update = { workspace = true }
+# The AI Assistant panel stores its settings in the platform config directory (desktop only).
+effectcraft-host = { workspace = true }
+# The AI Assistant panel's worker calls the configured LLM endpoint (same ureq build craft-update uses).
+ureq = { version = "3.5", default-features = false, features = ["rustls", "gzip", "charset"] }
 sys-locale = { workspace = true }
 
 [dev-dependencies]
